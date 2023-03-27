@@ -7,28 +7,28 @@
  */
 int get_flags(const char *format, int *i)
 {
-	int j, kr_i;
+	int j, curr_i;
 	int flags = 0;
-	const char flg_ch[] = {'-', '+', '0', '#', ' ', '\0'};
-	const int flg_arr[] = {_minus, _plus, _zero, _hash, _space, 0};
+	const char FLAGS_CH[] = {'-', '+', '0', '#', ' ', '\0'};
+	const int FLAGS_ARR[] = {F_MINUS, F_PLUS, F_ZERO, F_HASH, F_SPACE, 0};
 
-	kr_i = *i + 1;
-	while (format[kr_i] != '\0')
+	curr_i = *i + 1;
+	while (format[curr_i] != '\0')
 	{
 		j = 0;
-		while (flg_ch[j] != '\0')
+		while (FLAGS_CH[j] != '\0')
 		{
-			if (format[kr_i] == flg_ch[j])
+			if (format[curr_i] == FLAGS_CH[j])
 			{
-				flags |= flg_arr[j];
+				flags |= FLAGS_ARR[j];
 				break;
 			}
 			j++;
 		}
-		if (flg_ch[j] == 0)
+		if (FLAGS_CH[j] == 0)
 			break;
-		kr_i++;
+		curr_i++;
 	}
-	*i = kr_i - 1;
+	*i = curr_i - 1;
 	return (flags);
 }
