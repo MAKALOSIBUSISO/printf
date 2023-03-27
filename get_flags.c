@@ -10,7 +10,7 @@ int get_flags(const char *format, int *i)
 	int j, kr_i;
 	int flags = 0;
 	const char flg_ch[] = {'-', '+', '0', '#', ' ', '\0'};
-	const int flg_arr[] = {Flg_minus, Flg_plus, Flg_zero, Flg_hash, Flg_space, 0};
+	const int flg_arr[] = {_minus, _plus, _zero, _hash, _space, 0};
 
 	kr_i = *i + 1;
 	while (format[kr_i] != '\0')
